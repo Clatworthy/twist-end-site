@@ -1,0 +1,9 @@
+<!doctype html><meta charset="utf-8"><title>TikTok OAuth callback</title>
+<p>Authorization received. You can close this window.</p>
+<script>
+const p=new URLSearchParams(location.search);
+const out={code:p.get('code'),state:p.get('state'),error:p.get('error')};
+document.title='oauth-done';
+localStorage.setItem('tt_oauth',JSON.stringify(out));
+const pre=document.createElement('pre');pre.id='ttcode';pre.textContent=JSON.stringify(out);document.body.appendChild(pre);
+</script>
